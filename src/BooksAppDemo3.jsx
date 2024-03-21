@@ -29,7 +29,7 @@ const changeBookAuthorMutation = gql`
       author {
         id
         name
-        email
+        # email
       }
     }
   }
