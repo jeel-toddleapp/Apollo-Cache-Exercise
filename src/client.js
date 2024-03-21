@@ -52,37 +52,6 @@ class ApolloClientWrapper extends ApolloClient {
     super(options);
   }
 
-  readQuery(...options) {
-    /**
-     * How to use debug parameter
-     * -> client.readQuery({
-            query: guidanceDocumentsQuery,
-            variables,
-            debug: true
-            })
-     */
-
-    const { debug = false, query, variables } = _.first(options);
-
-    const response = super.readQuery(...options);
-
-    if (debug && response === null) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'Query',
-        getOperationName(query),
-        _.cloneDeep({
-          queryData: this?.cache?.diff({
-            query,
-            variables,
-          }),
-        }),
-      );
-    }
-
-    return response;
-  }
-
   /**
    * Aim of overriding watchQuery method is to get instance of ObservableQuery to fix some issues which are open in apollo client.
    * DO NOT MODIFY ANYTHING IN THIS METHOD WITHOUT DISCUSSION. All changes are made considering that better solution is not possible to fix these issues.
@@ -147,24 +116,24 @@ class ApolloClientWrapper extends ApolloClient {
         const complete = _.get(this, 'lastDiff.diff.complete', true);
 
         if (dirty && !complete) {
-          // const query = _.get(
-          //   this,
-          //   'lastDiff.options.query.loc.source.body',
-          //   '',
-          // );
-          // const optimistic = _.get(this, 'lastDiff.options.optimistic', false);
+          const query = _.get(
+            this,
+            'lastDiff.options.query.loc.source.body',
+            '',
+          );
+          const optimistic = _.get(this, 'lastDiff.options.optimistic', false);
 
-          // console.warn(
-          //   `Due to ${
-          //     optimistic ? 'optimistic' : ''
-          //   } cache update, cache has incomplete data for the following query`,
-          // );
-          // console.warn(`Query: ${query}`);
+          console.warn(
+            `Due to ${
+              optimistic ? 'optimistic' : ''
+            } cache update, cache has incomplete data for the following query`,
+          );
+          console.warn(`Query: ${query}`);
 
-          // console.warn(
-          //   `Status of missing cached data for above query::`,
-          //   _.get(this, 'lastDiff.diff.missing'),
-          // );
+          console.warn(
+            `Status of missing cached data for above query::`,
+            _.get(this, 'lastDiff.diff.missing'),
+          );
 
           return false;
         }
