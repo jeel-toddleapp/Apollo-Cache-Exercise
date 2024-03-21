@@ -1,0 +1,115 @@
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.bookInfo {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 12px;
+}
+
+.bookEditActions {
+  display: flex;
+  gap: 12px;
+}
+
+.editBookName {
+  border: none;
+  border-bottom: 1px solid black;
+  flex: 1;
+}
+
+.assignAuthor {
+  display: flex;
+  width: max-content;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.tagsList {
+  display: flex;
+  gap: 5px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #d0d0d0;
+}
+
+.additionalInfoContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.additionalInfoContainerHeader {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.additionalDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.additionalDetailsInputModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.additionalDetailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 420px;
+}
+
+.additionalDetailsHeader {
+  display: flex;
+  font-weight: 600;
+  justify-content: space-between;
+}
+
+.additionalDetailsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.additionalDetailsYearWiseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputFieldWrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
