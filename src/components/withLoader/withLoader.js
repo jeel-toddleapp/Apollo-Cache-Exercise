@@ -23,6 +23,11 @@ function withLoader(Component) {
         </div>
       );
     }
+
+    console.log('Inside withLoader');
+    console.log('isData::', isData);
+    console.log('isLoading::', isLoading);
+    // No data found in cache and no request is going for the query
     // return <div>No data found from the cache</div>;
     return null;
   };
